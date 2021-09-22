@@ -8,9 +8,9 @@ CC		= gcc
 
 RM		= rm -f
 
-LDIR	= /home/fleanegan/e42/software/criterion-v2.3.3/lib
+LDIR	= ../criterion-v2.3.3/lib
 
-IDIR	= /home/fleanegan/e42/software/criterion-v2.3.3/include
+IDIR	= ../criterion-v2.3.3/include
 
 LIBS	= -lcriterion
 

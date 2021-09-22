@@ -52,7 +52,7 @@ Mkfile.old
 dkms.conf
 
 # ignore the criterion folder
-/criterion_folder/*
+/criterion*
 
 # ignore intellij stuff
 /.idea/*
