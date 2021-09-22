@@ -56,3 +56,7 @@ dkms.conf
 
 # ignore intellij stuff
 /.idea/*
+
+# dont spoil the others with your solution!
+/src/ft_*
+
