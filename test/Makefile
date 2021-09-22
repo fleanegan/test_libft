@@ -2,7 +2,7 @@ SRCS	= $(shell find ../src/ -type f -name "*.c")
 
 MAIN	= test_main.c
 
-NAME	= test_executable
+NAME	= test_executable.o
 
 CC		= gcc
 

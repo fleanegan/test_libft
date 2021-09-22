@@ -12,3 +12,16 @@ wget https://github.com/Snaipe/Criterion/releases/download/v2.3.3/criterion-v2.3
 tar -xf criterion-v2.3.3-linux-x86_64.tar.bz2
 rm criterion-v2.3.3-linux-x86_64.tar.bz2
 ```
+
+Test execution
+---
+The Makefile can be used to compile and run the tests with all the necessary source files.
+Run the following command in the root directory:
+```
+make run_tests
+```
+which compiles with all the flags also used by the Moulinette. To compile without them run
+
+```
+make run_tests_compile_no_flags
+```
