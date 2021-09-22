@@ -15,13 +15,20 @@ rm criterion-v2.3.3-linux-x86_64.tar.bz2
 
 Test execution
 ---
-The Makefile can be used to compile and run the tests with all the necessary source files.
-Run the following command in the root directory:
-```
-make run_tests
-```
-which compiles with all the flags also used by the Moulinette. To compile without them run
+1. Add your own source_files.c into the src folder
 
-```
-make run_tests_compile_no_flags
-```
+2. Write the test of function x as test/test_ft_x.h
+
+3. Include the test_ft_x.h in the test/test_main.c file, else the tests will not be executed!
+
+4. Use the Makefile to compile and run the tests:
+
+	Run the following command in the root directory:
+	```
+	make run_tests
+	```
+	which compiles with all the flags also used by the Moulinette. To compile without them run
+
+	```
+	make run_tests_compile_no_flags
+	```
