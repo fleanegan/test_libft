@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# ignore the criterion folder
+/criterion_folder/*
+
+# ignore intellij stuff
+/.idea/*
