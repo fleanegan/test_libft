@@ -12,3 +12,4 @@
 #include "test_ft_tolower.h"
 #include "test_ft_strlcpy.h"
 #include "test_ft_strchr.h"
+#include "test_ft_strlcat.h"

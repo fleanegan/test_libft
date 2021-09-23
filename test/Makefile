@@ -1,14 +1,18 @@
+SRCS				= $(shell find ../src/ -type f -name "*.c" -o -name "*.h")
+
+TEST_FILES			= $(shell find ./ -type f -name "*.h" -o -name "*.c")
+
 MAIN				= test_main.c
 
 NAME				= test_executable.o
 
-CC					= gcc
+CC					= gcc -lbsd
 
 RM					= rm -f
 
 LIBNAMELIBFT		=	../src/libft.a
 
-$(LIBNAMELIBFT):
+$(LIBNAMELIBFT):	$(SRCS)
 					$(MAKE) -C 	../src/ all
 
 ILIBFT				= -L../src -l:libft.a
@@ -17,17 +21,17 @@ ICRITERION			= -L../criterion-v2.3.3/lib -I../criterion-v2.3.3/include -lcriteri
 
 CFLAGS				= -Wall -Wextra -Werror
 
-${NAME}:			$(LIBNAMELIBFT)
-					${CC} ${CFLAGS} -o $(NAME) ../src/libft.h $(MAIN) $(ICRITERION) $(ILIBFT)
+${NAME}:			$(LIBNAMELIBFT) $(SRCS) $(TEST_FILES)
+					${CC} ${CFLAGS} -o $(NAME) $(MAIN) $(ICRITERION) $(ILIBFT)
 
 # defines "own_source", which allows for including tests specific to your code with #ifndef
-test_own:			$(LIBNAMELIBFT)
-					${CC} ${CFLAGS} -D own_source -o $(NAME) ../src/libft.h $(MAIN) $(ICRITERION) $(ILIBFT)
+test_own:			$(LIBNAMELIBFT) $(SRCS) $(TEST_FILES)
+					${CC} ${CFLAGS} -D own_source -o $(NAME) $(MAIN) $(ICRITERION) $(ILIBFT)
 
 all:				${NAME}
 
-compile_with_no_flags:
-					${CC} -o $(NAME) ../src/libft.h $(MAIN) $(ICRITERION) $(ILIBFT)
+compile_with_no_flags: $(SRCS) $(TEST_FILES)
+					${CC} -o $(NAME) $(MAIN) $(ICRITERION) $(ILIBFT)
 fclean:
 					${RM} ${NAME}
 
