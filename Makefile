@@ -4,10 +4,17 @@ run_tests:
 run_tests_compile_no_flags:
 			$(MAKE) -C 	./test/ run_no_flags
 
-re:			fclean all
+re:
+			$(MAKE) -C 	./src/ re
+			$(MAKE) -C 	./test/ re
+
+clean:
+			$(MAKE) -C  ./src/ clean
+
+fclean:		clean
+			$(MAKE) -C 	./src/ fclean
+			$(MAKE) -C 	./test/ fclean
 
 all:
-			run_tests
-
-run: all
-	@./$(NAME)
+			$(MAKE) -C 	./src/ all
+			$(MAKE) -C 	./test/ all
