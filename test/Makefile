@@ -25,7 +25,7 @@ test_own:	$(SRCS)
 
 all:		${NAME}
 
-compile_with_no_flags:
+compile_with_no_flags: $(SRCS)
 			${CC} -o $(NAME) $(SRCS) -I$(IDIR) -L$(LDIR) $(LIBS)
 
 fclean:

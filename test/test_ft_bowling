@@ -1,0 +1,35 @@
+#include <criterion/criterion.h>
+#include <unistd.h>
+#include "../src/bowling.h"
+
+Test(test_bowling, weak_game) {
+	init();
+	for (int turns = 0; turns < 20; turns++)
+		roll(0);
+
+	int result = score();
+
+	cr_assert_eq(result, 0);
+}
+
+Test(test_bowling, only_ones) {
+	init();
+	for (int turns = 0; turns < 20; turns++)
+		roll(1);
+
+	int result = score();
+
+	cr_assert_eq(result, 20);
+}
+
+Test(test_bowling, five_pins_at_each_turn)
+{
+		roll(5);
+		roll(5);
+		for (int turns = 0; turns < 18; turns++)
+			roll(1);
+
+		int result = score();
+
+		cr_assert_eq(result, 29, " but returned was %d", result);
+}
