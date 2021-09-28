@@ -2,6 +2,16 @@
 #include <unistd.h>
 #include "../src/bowling.h"
 
+Test(test_bowling, cheater) {
+	init();
+	for (int turns = 0; turns < 22; turns++)
+		roll(1);
+
+	int result = score();
+
+	cr_assert_eq(result, -1);
+}
+
 Test(test_bowling, weak_game) {
 	init();
 	for (int turns = 0; turns < 20; turns++)
@@ -24,12 +34,38 @@ Test(test_bowling, only_ones) {
 
 Test(test_bowling, five_pins_at_each_turn)
 {
-		roll(5);
-		roll(5);
-		for (int turns = 0; turns < 18; turns++)
-			roll(1);
+	init();
+	roll(5);
+	roll(5);
+	for (int turns = 0; turns < 18; turns++)
+		roll(1);
 
-		int result = score();
+	int result = score();
 
-		cr_assert_eq(result, 29, " but returned was %d", result);
+	cr_assert_eq(result, 29, " but returned was %d", result);
 }
+
+Test(test_bowling, spare_at_the_end)
+{
+	init();
+	for (int turns = 0; turns < 19; turns++)
+		roll(1);
+	roll(9);
+	roll(1);
+
+	int result = score();
+
+	cr_assert_eq(result, 30, " but returned was %d", result);
+}
+
+// Test(test_bowling, strike_on_first_frame)
+// {
+// 	init();
+// 	roll(10);
+// 	for (int turns = 0; turns < 18; turns++)
+// 		roll(1);
+
+// 	int result = score();
+
+// 	cr_assert_eq(result, 30, " but returned was %d", result);
+// }
