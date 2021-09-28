@@ -7,7 +7,7 @@ run_tests_compile_no_flags:
 re:			fclean all
 
 all:
-			run_tests
+			$(MAKE) -C 	./test/ all
 
 run: all
 	@./$(NAME)

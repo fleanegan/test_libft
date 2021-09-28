@@ -17,7 +17,7 @@ LIBS	= -lcriterion
 CFLAGS	= -Wall -Wextra -Werror
 
 ${NAME}:	$(SRCS)
-			${CC} ${CFLAGS} -o $(NAME) $(MAIN) $(SRCS) -I$(IDIR) -L$(LDIR) $(LIBS)
+			${CC} ${CFLAGS} -o $(NAME) $(MAIN) $(SRCS) -L../criterion-v2.3.3/lib -I../criterion-v2.3.3/include -lcriterion -Wl,-rpath=../criterion-v2.3.3/lib
 
 # defines "own_source", which allows for including tests specific to your code with #ifndef
 test_own:	$(SRCS)
