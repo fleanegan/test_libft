@@ -1,33 +1,38 @@
+#include "bowling.h"
 #include <stddef.h>
 
 #define TRUE 1
 #define FALSE 0
 
-int	roll_count = 0;
-int history[21];
-int	valid = TRUE;
+int		roll_count = 0;
+t_frame	history[10];
+int		current_frame = 0;
+int		valid = TRUE;
 
 void init()
 {
-	for (int i = 0; i < 21; i++)
-		history[i] = 0;
+	for (int i = 0; i < 10; i++)
+		for (int j = 0; j < 3; j++)
+			history->pins[j] = 0;
+		history->score = 0;
+}
+
+int	end_frame(int pins[3])
+{
+	return (roll_count == 2 || pins[0] + pins[1] == 10);
 }
 
 void	roll(int knocked_pins)
 {
-	if (roll_count >= 21) {
-		valid = FALSE;
-		return ;
+	history[current_frame].pins[roll_count] = knocked_pins;
+	if (end_frame(history[current_frame].pins))
+	{
+		current_frame++;
+		roll_count = 0;
 	}
-	history[roll_count] = knocked_pins;
-	roll_count++;
+	else
+		roll_count++;
 }
-
-struct frame{
-	int pins[3];
-	int number;
-	int score;
-};
 
 // 5 5
 // 15
@@ -38,20 +43,11 @@ struct frame{
 int score(void)
 {
 	int total_score = 0;
-	int strike_count = 0;
-
-	if (!valid)
-		return (-1);
-	for (roll_count = 0; roll_count < 21; roll_count++)
+	
+	for (int i = 0; i < 10; i++)
 	{
-		if (roll_count % 2 != strike_count % 2 && history[roll_count - 1] + history[roll_count] == 10)
-			total_score += history[roll_count + 1];
-		if (roll_count % 2 == strike_count % 2 && history[roll_count] == 10)
-		{
-			total_score += history[roll_count + 1] + history[roll_count + 2];
-			strike_count++;
-		}
-		total_score += history[roll_count];
+		// curr frame
+		if (is_spare()) // next roll
+		else if (is_strike()) // next 2 rolls
 	}
-	return total_score;
 }
