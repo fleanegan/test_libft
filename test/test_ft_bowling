@@ -58,14 +58,30 @@ Test(test_bowling, spare_at_the_end)
 	cr_assert_eq(result, 30, " but returned was %d", result);
 }
 
-// Test(test_bowling, strike_on_first_frame)
-// {
-// 	init();
-// 	roll(10);
-// 	for (int turns = 0; turns < 18; turns++)
-// 		roll(1);
+ Test(test_bowling, strike_on_first_frame)
+ {
+ 	init();
+ 	roll(10);
+ 	for (int turns = 0; turns < 18; turns++)
+ 		roll(1);
 
-// 	int result = score();
+ 	int result = score();
 
-// 	cr_assert_eq(result, 30, " but returned was %d", result);
-// }
+ 	cr_assert_eq(result, 30, " but returned was %d", result);
+ }
+
+Test(test_bowling, strike_on_first_and_second_frame)
+{
+	init();
+	roll(10);
+	roll(10);
+	for (int turns = 0; turns < 16; turns++)
+		roll(1);
+
+	int result = score();
+
+	cr_assert_eq(result, 49, " but returned was %d", result);
+}
+
+// add test for strike and spare at the end
+// add test to work for two strikes or at even roll_count

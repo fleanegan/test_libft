@@ -23,6 +23,12 @@ void	roll(int knocked_pins)
 	roll_count++;
 }
 
+struct frame{
+	int pins[3];
+	int number;
+	int score;
+};
+
 // 5 5
 // 15
 
@@ -32,13 +38,19 @@ void	roll(int knocked_pins)
 int score(void)
 {
 	int total_score = 0;
+	int strike_count = 0;
 
 	if (!valid)
 		return (-1);
 	for (roll_count = 0; roll_count < 21; roll_count++)
 	{
-		if (roll_count % 2 && history[roll_count - 1] + history[roll_count] == 10)
+		if (roll_count % 2 != strike_count % 2 && history[roll_count - 1] + history[roll_count] == 10)
 			total_score += history[roll_count + 1];
+		if (roll_count % 2 == strike_count % 2 && history[roll_count] == 10)
+		{
+			total_score += history[roll_count + 1] + history[roll_count + 2];
+			strike_count++;
+		}
 		total_score += history[roll_count];
 	}
 	return total_score;
