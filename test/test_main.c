@@ -13,3 +13,5 @@
 #include "test_ft_strlcpy.h"
 #include "test_ft_strchr.h"
 #include "test_ft_strlcat.h"
+#include "test_test_utils.h"
+#include "test_ft_atoi.h"

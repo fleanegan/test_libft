@@ -1,28 +1,6 @@
 #include <criterion/criterion.h>
 #include "../src/libft.h"
 
-int	ft_atoi(const char *in)
-{
-	int	sign;
-	int	res;
-
-	res = 0;
-	sign = 1;
-	while (ft_isspace(*in))
-		in++;
-	if (*in == '-' || *in == '+')
-	{
-		if (*in == '-')
-			sign = -1;
-		in++;
-	}
-
-	while (ft_isdigit(*in))
-		res = 10 * res + (*in++ - '0');
-	return (sign * res);
-}
-
-
 Test(test_atoi, empty_string) {
 	char *in = "";
 	int exp_res = atoi(in);

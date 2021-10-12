@@ -61,29 +61,4 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
-
-// personal functions
-char	ft_sign(long nb);
-char	*ft_strtrim_char(char const *s1, char c);
-long	ft_get_signed_max(size_t nbits);
-long	ft_get_signed_min(size_t nbits);
-int		ft_isspace(int c);
-
-// get_next_line
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1023
-# endif
-
-# define MAX_FILES 1024
-
-typedef struct s_gnl_buffer
-{
-	size_t		start;
-	char		buf[BUFFER_SIZE + 1];
-}	t_gnl_buffer;
-
-int		get_next_line(int fd, char **line);
-
-// todo: ft_lstsort, ft_lst_issorted, ft_lst_find, 
-
 #endif
