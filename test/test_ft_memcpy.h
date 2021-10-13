@@ -49,10 +49,6 @@ Test(test_memcpy, set_two_bytes) {
 
 #ifdef own_source
 
-Test(test_memcpy, test_non_obligatory_function)
-{
-	cr_assert_eq(1, 2);
-}
 
 #endif
 

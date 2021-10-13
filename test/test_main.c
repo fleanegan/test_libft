@@ -15,3 +15,6 @@
 #include "test_ft_strlcat.h"
 #include "test_test_utils.h"
 #include "test_ft_atoi.h"
+#include "test_ft_substr.h"
+#include "test_ft_strjoin.h"
+#include "test_ft_strtrim.h"
