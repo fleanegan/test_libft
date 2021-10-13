@@ -27,12 +27,12 @@ ${NAME}:			$(LIBNAMELIBFT) $(SRCS) $(TEST_HEADERS) $(TEST_SOURCES)
 					${CC} ${CFLAGS} -o $(NAME) $(TEST_SOURCES) $(ICRITERION) $(ILIBFT)
 
 # defines "own_source", which allows for including tests specific to your code with #ifndef
-test_own:			$(LIBNAMELIBFT) $(SRCS) $(TEST_FILES)
+test_own:			$(LIBNAMELIBFT) $(SRCS) $(TEST_HEADERS) $(TEST_SOURCES)
 					${CC} ${CFLAGS} -D own_source -o $(NAME) $(TEST_SOURCES) $(ICRITERION) $(ILIBFT)
 
 all:				${NAME}
 
-compile_with_no_flags: $(SRCS) $(TEST_FILES)
+compile_with_no_flags: $(LIBNAMELIBFT) $(SRCS) $(TEST_HEADERS) $(TEST_SOURCES)
 					${CC} -o $(NAME) $(TEST_SOURCES) $(ICRITERION) $(ILIBFT)
 fclean:
 					${RM} ${NAME}
