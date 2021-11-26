@@ -1,5 +1,3 @@
-#include <criterion/criterion.h>
-#include "../src/libft.h"
 #include "test_utils.h"
 
 Test(test_generate_random_strings, entered_length_is_correct)
@@ -34,4 +32,50 @@ Test(test_generate_random_strings, all_chars_are_printable)
 	char	*random_string = generate_random_string(len);
 	for (size_t i = 0; i < len; i++)
 		cr_assert(ft_isprint(random_string[i]), "char is: %i", random_string[i]);
+}
+
+Test(test_redirect_str_from_stdout, print_shorter_than_expected_returns_false)
+{
+	char *in = "01234";
+
+	cr_redirect_stdout();
+
+	write(1, in, 3);
+
+	int result = replacement_for_broken_criterion_stdout_matcher(in, cr_get_redirected_stdout());
+	cr_assert_not(result);
+}
+
+Test(test_redirect_str_from_stdout, print_longer_than_expected_returns_false)
+{
+	char *in = "01234";
+
+	cr_redirect_stdout();
+
+	write(1, in, 5);
+
+	cr_bugfix_assert_str_stdout(in);
+}
+
+Test(test_redirect_str_from_stdout, print_different_than_expected_returns_false)
+{
+	char *in = "01234";
+
+	cr_redirect_stdout();
+
+	write(1, in, 5);
+
+	cr_bugfix_assert_str_stdout(in);
+}
+
+
+Test(test_redirect_str_from_stdout, print_same_than_expected_returns_true)
+{
+	char *in = "0";
+
+	cr_redirect_stdout();
+
+	write(1, in, 1);
+
+	cr_bugfix_assert_str_stdout(in);
 }

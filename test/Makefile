@@ -8,14 +8,14 @@ MAIN				= test_main.c
 
 NAME				= test_executable.o
 
-CC					= gcc -lbsd
+CC					= gcc -lbsd -ggdb
 
 RM					= rm -f
 
 LIBNAMELIBFT		=	../src/libft.a
 
 $(LIBNAMELIBFT):	$(SRCS)
-					$(MAKE) -C 	../src/ all
+					$(MAKE) -C 	../src/ bonus
 
 ILIBFT				= -L../src -l:libft.a
 

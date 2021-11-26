@@ -3,12 +3,12 @@
 Test(test_memmove, cpy_no_bits_if_byte_number_is_zero) {
 	char 	src[] = {69};
 	char 	dest[] = {0};
-	char 	exp_res[] = {0};
+	char 	res_exp[] = {0};
 	size_t	n = 0;
 
 	ft_memmove(dest, src, n);
 
-	cr_assert_arr_eq(dest, exp_res, 1 * sizeof(char));
+	cr_assert_arr_eq(dest, res_exp, 1 * sizeof(char));
 }
 
 Test(test_memmove, returns_pointer) {
@@ -24,34 +24,34 @@ Test(test_memmove, returns_pointer) {
 Test(test_memmove, cpy_one_byte) {
 	char 	src[] = {69};
 	char 	dest[] = {0};
-	char 	exp_res[] = {69};
+	char 	res_exp[] = {69};
 	size_t	n = 1;
 
 	ft_memmove(dest, src, n);
 
-	cr_assert_arr_eq(dest, exp_res, 1 * sizeof(char));
+	cr_assert_arr_eq(dest, res_exp, 1 * sizeof(char));
 }
 
 Test(test_memmove, set_two_bytes) {
 	char 	src[] = {69, 68};
 	char 	dest[] = {0, 0};
-	char 	exp_res[] = {69, 68};
+	char 	res_exp[] = {69, 68};
 	size_t	n = 2;
 
 	ft_memmove(dest, src, n);
 
-	cr_assert_arr_eq(dest, exp_res, 2 * sizeof(char));
+	cr_assert_arr_eq(dest, res_exp, 2 * sizeof(char));
 }
 
 Test(test_memmove, set_overlapping_memories) {
 	char 	src[] = {69, 68};
-	char 	exp_res[] = {69};
+	char 	res_exp[] = {69};
 	char 	*dest = (src + 1);
 	size_t	n = 1;
 
 	ft_memmove(dest, src, n);
 
-	cr_assert_arr_eq(dest, exp_res, sizeof(char));
+	cr_assert_arr_eq(dest, res_exp, sizeof(char));
 }
 
 Test(test_memmove, comparison_with_original_implementation_normal_case) {

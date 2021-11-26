@@ -1,9 +1,4 @@
-#include <string.h>
-#include <criterion/criterion.h>
-#include <criterion/theories.h>
-#include <ctype.h>
-#include <stdio.h>
-#include "../src/libft.h"
+#include "test_utils.h"
 
 Test(test_isdigit, returns_zero_if_input_alphabetic) {
 	cr_assert_eq(ft_isdigit('e'), 0);

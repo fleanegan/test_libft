@@ -2,14 +2,14 @@
 
 Test(test_memset, set_no_bits) {
 	char 	dest_own[] = {69, 68};
-	char 	exp_res[] = {69, 68};
+	char 	res_exp[] = {69, 68};
 	size_t	bit_count = 0;
 	int 	new_content = 3;
 
 	ft_memset(&dest_own, new_content, bit_count);
-	memset(&exp_res, new_content, bit_count);
+	memset(&res_exp, new_content, bit_count);
 
-	cr_assert_arr_eq(dest_own, exp_res, 2 * sizeof(char));
+	cr_assert_arr_eq(dest_own, res_exp, 2 * sizeof(char));
 }
 
 Test(test_memset, returns_pointer) {
@@ -17,7 +17,7 @@ Test(test_memset, returns_pointer) {
 	size_t	bit_count = 0;
 	int 	new_content = 3;
 	char 	*own_ptr =	ft_memset(&dest_own, new_content, bit_count);
-	char 	*orig_ptr =	ft_memset(&dest_own, new_content, bit_count);
+	char 	*orig_ptr =	memset(&dest_own, new_content, bit_count);
 
 	cr_assert_eq(*own_ptr, *orig_ptr);
 }
@@ -37,14 +37,14 @@ Test(test_memset, set_one_byte) {
 
 Test(test_memset, set_two_bytes) {
 	char 	dest_own[] = {69, 68};
-	char 	exp_res[2];
+	char 	res_exp[2];
 	size_t	bit_count = 2;
 	int 	new_content = 3;
 
 	ft_memset(&dest_own, new_content, bit_count);
-	ft_memset(&exp_res, new_content, bit_count);
+	memset(&res_exp, new_content, bit_count);
 
-	cr_assert_arr_eq(dest_own, exp_res, 2 * sizeof(char));
+	cr_assert_arr_eq(dest_own, res_exp, 2 * sizeof(char));
 }
 
 // what else !?

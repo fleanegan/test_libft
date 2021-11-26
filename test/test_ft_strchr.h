@@ -31,7 +31,7 @@ Test(test_strchr, finds_terminating_char_in_empty_string) {
 	char	*res_own = ft_strchr(in, search);
 	char	*res_orig = strchr(in, search);
 
-	cr_assert_eq(*res_own, 0);
+	cr_assert_not_null(res_own);
 	cr_assert_eq(res_orig, res_own);
 }
 

@@ -1,6 +1,4 @@
-#include <criterion/criterion.h>
-#include "../src/libft.h"
-#include "../src/libft_auxiliar.h"
+#include "test_utils.h"
 
 Test(test_trim, trimmed_empty_string_stays_empty_string)
 {
@@ -62,35 +60,12 @@ Test(test_trim, trim_complex_string)
 	cr_assert_str_eq(res_act, res_exp);
 }
 
-#ifdef own_source
-
-Test(test_trim, return_one_if_letter_in_set)
+Test(test_trim, pure_space)
 {
-	char	src = '.';
-	char	*set = "|.";
+	char	*src = "......";
+	char	*set = ".|";
+	char	*res_exp = "";
 
-	int	res_act = is_char_in_set(src, set);
-	cr_assert_gt(res_act, 0);
+	char 	*res_act = ft_strtrim(src, set);
+	cr_assert_str_eq(res_act, res_exp);
 }
-
-Test(test_trim, count_leading_trimmable_chars)
-{
-	char	*src = "..a";
-	char	*set = ".";
-	size_t	res_exp = 2;
-
-	size_t	res_act = count_trimmable_leading_chars(src, set);
-	cr_assert_eq(res_act, res_exp);
-}
-
-Test(test_trim, count_trailing_trimmable_chars)
-{
-	char	*src = "a..";
-	char	*set = ".";
-	size_t	res_exp = 2;
-
-	size_t	res_act = count_trimmable_trailing_chars(src, set);
-	cr_assert_eq(res_act, res_exp);
-}
-
-#endif

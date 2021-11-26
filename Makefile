@@ -16,9 +16,9 @@ fclean:		clean
 			$(MAKE) -C 	./test/ fclean
 
 all:
-			$(MAKE) -C 	./src/ all
+			$(MAKE) -C 	./src/ bonus
 			$(MAKE) -C 	./test/ all
 
 own_tests:
-			$(MAKE) -C 	./src/ all
+			$(MAKE) -C 	./src/ bonus
 			$(MAKE) -C 	./test/ test_own
