@@ -15,7 +15,7 @@ Test(test_lstclear, passing_del_funct_which_prints_content_prints_0_on_list_with
 	cr_bugfix_assert_str_stdout(dummy_content_string);
 }
 
-Test(test_lstclear, passing_del_funct_which_prints_content_prints_10_on_list_with_two_element)
+Test(test_lstclear, passing_del_funct_which_prints_content_prints_01_on_list_with_two_element)
 {
 	char	*content0 = ft_strdup("0");
 	char	*content1 = ft_strdup("1");
@@ -26,7 +26,7 @@ Test(test_lstclear, passing_del_funct_which_prints_content_prints_10_on_list_wit
 	cr_redirect_stdout();
 	ft_lstclear(&first, del);
 
-	cr_bugfix_assert_str_stdout("10");
+	cr_bugfix_assert_str_stdout("01");
 }
 
 Test(test_lstclear, passing_del_funct_which_prints_content_prints_210_on_list_with_three_element)
@@ -43,7 +43,7 @@ Test(test_lstclear, passing_del_funct_which_prints_content_prints_210_on_list_wi
 	cr_redirect_stdout();
 	ft_lstclear(&first, del);
 
-	cr_bugfix_assert_str_stdout("210");
+	cr_bugfix_assert_str_stdout("012");
 }
 
 Test(test_lstclear, lstclear_sets_adress_to_null)

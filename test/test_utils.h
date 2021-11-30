@@ -8,7 +8,6 @@
 # include <stdio.h>
 # include "../src/libft.h"
 # include "bsd/string.h"
-# include "../src/libft_bonus.h"
 # include <criterion/criterion.h>
 # include <criterion/theories.h>
 # include <ctype.h>

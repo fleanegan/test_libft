@@ -85,3 +85,15 @@ Test(test_substr, returns_malloc_string)
 
 	cr_assert_str_eq(res_act, res_exp);
 }
+
+Test(test_substr, use_strlen_if_strlen_less_then_len)
+{
+	char	src[] = "abc";
+	char	res_exp[] = "bc";
+	size_t	len = 200;
+	size_t	start = 1;
+
+	char	*res_act = ft_substr(src, start, len);
+
+	cr_assert_str_eq(res_act, res_exp);
+}
