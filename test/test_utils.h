@@ -13,6 +13,7 @@
 # include <ctype.h>
 # include <string.h>
 # include <criterion/redirect.h>
+# define SPACE_NULLTERMIN 1
 
 typedef struct strcat_obj
 {
